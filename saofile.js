@@ -1,62 +1,70 @@
-const superb = require('superb')
+const superb = require("superb");
 
 module.exports = {
   prompts() {
     return [
       {
-        name: 'name',
-        message: 'What is the name of the new generator (must be sao-*)',
-        default: `sao-${this.outFolder.replace(/^sao-/, '')}`,
+        name: "name",
+        message: "What is the name of the new generator (must be sao-*)",
+        default: `sao-${this.outFolder.replace(/^sao-/, "")}`,
         filter: val => val.toLowerCase(),
-        validate: val => val.startsWith('sao-')
+        validate: val => val.startsWith("sao-")
       },
       {
-        name: 'description',
-        message: 'How would you descripe the new template',
+        name: "description",
+        message: "How would you descripe the new template",
         default: `my ${superb()} SAO generator`
       },
       {
-        name: 'username',
-        message: 'What is your GitHub username',
+        name: "authorName",
+        message: "What is your name",
+        default: this.gitUser.name,
+        store: true
+      },
+      {
+        name: "username",
+        message: "What is your Git username",
         default: this.gitUser.username || this.gitUser.name,
         filter: val => val.toLowerCase(),
         store: true
       },
       {
-        name: 'email',
-        message: 'What is your email?',
+        name: "email",
+        message: "What is your email?",
         default: this.gitUser.email,
         store: true
       },
       {
-        name: 'website',
-        message: 'The URL of your website',
+        name: "website",
+        message: "The URL of your website",
         default({ username }) {
-          return `github.com/${username}`
+          return `https://github.com/${username}`;
         },
         store: true
       }
-    ]
+    ];
   },
   actions: [
     {
-      type: 'add',
-      files: '**',
-      transformExclude: 'template/**'
+      type: "add",
+      files: "**",
+      transformExclude: "template/**"
     },
     {
-      type: 'move',
+      type: "move",
       patterns: {
-        gitignore: '.gitignore',
+        gitignore: ".gitignore",
         // If we use `package.json` directly
         // Then `template` folder will be treated as a package too, which isn't safe
-        '_package.json': 'package.json'
+        "_package.json": "package.json",
+        "eslintrc.json": ".eslintrc.json",
+        eslintignore: ".eslintignore"
       }
     }
   ],
   async completed() {
-    this.gitInit()
-    await this.npmInstall()
-    this.showProjectTips()
+    this.gitInit();
+    await this.npmInstall();
+    this.showProjectTips();
   }
-}
+};
