@@ -1,5 +1,3 @@
-const superb = require("superb");
-
 module.exports = {
   prompts() {
     return [
@@ -11,8 +9,7 @@ module.exports = {
       },
       {
         name: "description",
-        message: "How would you descripe the new project",
-        default: `my ${superb()} project`
+        message: "How would you descripe the new project"
       },
       {
         name: "username",
@@ -28,7 +25,8 @@ module.exports = {
         store: true
       },
       {
-        message: "The URL of your website",
+        name: 'website',
+        message: 'The URL of your website',
         default({ username }) {
           return `https://github.com/${username}`;
         },

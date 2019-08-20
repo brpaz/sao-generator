@@ -11,8 +11,8 @@ module.exports = {
         validate: val => val.startsWith("sao-")
       },
       {
-        name: "description",
-        message: "How would you descripe the new template",
+        name: 'description',
+        message: 'How would you describe the new template',
         default: `my ${superb()} SAO generator`
       },
       {
