@@ -1,4 +1,3 @@
-const superb = require("superb");
 
 module.exports = {
   prompts() {
@@ -13,7 +12,7 @@ module.exports = {
       {
         name: 'description',
         message: 'How would you describe the new template',
-        default: `my ${superb()} SAO generator`
+        default: `my SAO generator`
       },
       {
         name: "authorName",
