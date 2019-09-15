@@ -2,21 +2,21 @@ module.exports = {
   prompts() {
     return [
       {
-        name: "name",
-        message: "What is the name of the new project",
+        name: 'name',
+        message: 'What is the name of the new project',
         default: this.outFolder,
         filter: val => val.toLowerCase()
       },
       {
-        name: "description",
-        message: "How would you descripe the new project"
+        name: 'description',
+        message: 'How would you descripe the new project'
       },
     ];
   },
   actions: [
     {
-      type: "add",
-      files: "**"
+      type: 'add',
+      files: '**'
     }
   ],
   async completed() {
