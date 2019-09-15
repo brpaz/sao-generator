@@ -1,6 +1,8 @@
 # sao-generator
 
-A generator for scaffolding out a SAO generator.
+> A generator for scaffolding out a SAO generator. This is a fork of the original [sao-generator](https://github.com/saojs/sao-generator) but tailored to my personal needs.
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
 
 ## Features
 
@@ -15,12 +17,6 @@ Install [SAO](https://github.com/saojs/sao) first.
 yarn global add sao
 # or
 npm i -g sao
-```
-
-### From npm
-
-```bash
-sao generator sao-name
 ```
 
 ### From repo

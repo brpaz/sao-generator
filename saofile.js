@@ -1,13 +1,12 @@
-
 module.exports = {
   prompts() {
     return [
       {
-        name: "name",
-        message: "What is the name of the new generator (must be sao-*)",
-        default: `sao-${this.outFolder.replace(/^sao-/, "")}`,
+        name: 'name',
+        message: 'What is the name of the new generator (must be sao-*)',
+        default: `sao-${this.outFolder.replace(/^sao-/, '')}`,
         filter: val => val.toLowerCase(),
-        validate: val => val.startsWith("sao-")
+        validate: val => val.startsWith('sao-')
       },
       {
         name: 'description',
@@ -15,50 +14,20 @@ module.exports = {
         default: `my SAO generator`
       },
       {
-        name: "authorName",
-        message: "What is your name",
-        default: this.gitUser.name,
-        store: true
-      },
-      {
-        name: "username",
-        message: "What is your Git username",
-        default: this.gitUser.username || this.gitUser.name,
-        filter: val => val.toLowerCase(),
-        store: true
-      },
-      {
-        name: "email",
-        message: "What is your email?",
-        default: this.gitUser.email,
-        store: true
-      },
-      {
-        name: "website",
-        message: "The URL of your website",
-        default({ username }) {
-          return `https://github.com/${username}`;
-        },
-        store: true
+        name: 'repo_slug',
+        message: 'What is the repository slug of this generator',
+        default({ name }) {
+          // TODO find how to get GitUser here
+          return `brpaz/${name}`;
+        }
       }
     ];
   },
   actions: [
     {
-      type: "add",
-      files: "**",
-      transformExclude: "template/**"
-    },
-    {
-      type: "move",
-      patterns: {
-        gitignore: ".gitignore",
-        // If we use `package.json` directly
-        // Then `template` folder will be treated as a package too, which isn't safe
-        "_package.json": "package.json",
-        "eslintrc.json": ".eslintrc.json",
-        eslintignore: ".eslintignore"
-      }
+      type: 'add',
+      files: '**',
+      transformExclude: 'template/**'
     }
   ],
   async completed() {
