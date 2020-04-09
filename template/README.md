@@ -3,10 +3,9 @@
 > <%= description %>
 
 [![Sao template](https://img.shields.io/badge/Sao-Template-green?style=for-the-badge)](https://saojs.org/)
-[![GitHub Actions](https://github.com/<%= repo_slug %>/workflows/Build/badge.svg?style=for-the-badge)](https://github.com/brpaz/sao-generator/actions)
+[![GitHub Actions](https://github.com/<%= repo_slug %>/workflows/Build/badge.svg?style=for-the-badge)](https://github.com/<%= repo_slug %>/actions)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
-
 
 ## Usage
 
@@ -28,7 +27,7 @@ sao <%=repo_slug %> <project_name>
 
 👤 **Bruno Paz**
 
-* Website: [brunopaz.net](https://brunopaz.net)
+* Website: [brunopaz.dev](https://brunopaz.dev)
 * Github: [@brpaz](https://github.com/brpaz)
 * Twitter: [@brunopaz88](https://twitter.com/brunopaz88)
 
