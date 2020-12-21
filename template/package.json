@@ -2,6 +2,8 @@
   "name": "<%= name %>",
   "version": "1.0.0",
   "description": "<%= description %>",
+  "author": "Bruno Paz <oss@brunopaz.net>",
+  "license": "MIT",
   "files": [
     "saofile.js",
     "template"
@@ -15,32 +17,32 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "author": "Bruno Paz <oss@brunopaz.net>",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "cz-conventional-changelog": "^3.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.3",
-    "jest": "^25.3.0",
-    "lint-staged": "^9.2.5",
-    "prettier": "^2.0.4",
-    "sao": "^1.7.0"
+  "dependencies": {
+    "sao": "^2.0.0-beta.1"
   },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix"
-    ]
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js!template": [
+      ".eslint . --fix"
+    ]
   },
   "config": {
     "commitizen": {

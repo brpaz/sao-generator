@@ -1,16 +1,16 @@
-const sao = require('sao');
+import { SAO } from 'sao';
 
-const generator = __dirname;
-
-test('default', async () => {
-  const stream = await sao.mock(
-    {
-      generator
+test('it works', async () => {
+  const sao = new SAO({
+    generator: __dirname,
+    mock: true,
+    answers: {
+      name: 'sao-test',
     },
-    {
-      name: 'sao-test'
-    }
-  );
+  });
 
-  expect(stream.fileList).toContain('README.md');
+  await sao.run();
+
+  const files = await sao.getOutputFiles();
+  expect(files.length).toBeGreaterThan(0);
 });
