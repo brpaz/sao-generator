@@ -40,7 +40,7 @@
     }
   },
   "lint-staged": {
-    "*.js!template": [
+    "saofile.js": [
       ".eslint . --fix"
     ]
   },
