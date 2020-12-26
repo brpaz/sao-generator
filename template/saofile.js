@@ -1,13 +1,16 @@
+const slug = require('slug');
 module.exports = {
   prompts() {
     return [
       {
+        type: 'input',
         name: 'name',
         message: 'What is the name of the new project',
-        default: this.outFolder,
-        filter: val => val.toLowerCase()
+        default: this.outDirName,
+        filter: val => slug(val)
       },
       {
+        type: 'input',
         name: 'description',
         message: 'How would you descripe the new project'
       },
@@ -21,7 +24,6 @@ module.exports = {
   ],
   async completed() {
     this.gitInit();
-    await this.npmInstall();
     this.showProjectTips();
   }
 };
