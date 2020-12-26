@@ -13,15 +13,13 @@ module.exports = {
         type: 'input',
         name: 'description',
         message: 'How would you describe the new template',
-        default: `my SAO generator`,
       },
       {
         type: 'input',
-        name: 'repo_slug',
+        name: 'repoSlug',
         message: 'What is the repository slug of this generator',
-        default({ name }) {
-          // TODO find how to get GitUser here
-          return `brpaz/${name}`;
+        default: ({ answers }) => {
+          return `${this.gitUser.username}/${answers.name}`;
         },
       },
     ];

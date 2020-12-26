@@ -9,13 +9,12 @@
     "template"
   ],
   "repository": {
-    "url": "<%= repo_slug %>",
+    "url": "<%= repoSlug %>",
     "type": "git"
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "sao": "^2.0.0-beta.1"
@@ -40,8 +39,8 @@
     }
   },
   "lint-staged": {
-    "*.js!template": [
-      ".eslint . --fix"
+    "*.js": [
+      "npm run lint"
     ]
   },
   "config": {

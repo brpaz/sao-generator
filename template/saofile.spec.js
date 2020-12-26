@@ -1,13 +1,10 @@
-import { SAO } from 'sao';
+const sao = require('sao');
 
 test('it works', async () => {
   const sao = new SAO({
     generator: __dirname,
     mock: true,
-    answers: {
-      name: 'sao-test',
-      desccription: 'Example Generator',
-    },
+    answers: {},
   });
 
   await sao.run();
